@@ -1,0 +1,10 @@
+CREATE TABLE `processos`.`new_table` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `data_cadastro` DATETIME NOT NULL,
+  `data_visualizacao` DATETIME NOT NULL,
+  `municipio` VARCHAR(255) NOT NULL,
+  `uf` VARCHAR(255) NOT NULL,
+  `anexo` LONGBLOB NOT NULL,
+  `npu` VARCHAR(255) NOT NULL,
+  `new_tablecol` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`));
