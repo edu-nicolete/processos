@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Install Angular</h2>
+<mat-dialog-content class="mat-typography">
+    <mat-form-field class="full-width">
+        <mat-label>NPU</mat-label> 
+        <input [(ngModel)]="npu" mask="0000000-00.0000.0.00.0000" inputmode="numeric" required name="npu" maxlength="100" matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>UF</mat-label>
+        <mat-select [(value)]="uf" (selectionChange)="listaMunicipios()" required>
+          <mat-option *ngFor="let est of estados" value="{{est.id}}{{est.sigla}}">{{ est.sigla }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Municipio</mat-label>
+        <mat-select [(value)]="municipio" required>
+          <mat-option *ngFor="let muni of municipios" value="{{ muni.nome }}">{{ muni.nome }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width" enctype="multipart/form-data">
+        <mat-label></mat-label>
+        <button mat-button matPrefix (click)="f_input.click()">
+            Anexar
+        </button>
+        <input type="text" readonly matInput [formControl]="display" />
+        <input type="file" multiple hidden #f_input (change)="handleFileInputChange(f_input.files)"/>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Fechar</button>
+  <button mat-button (click)="salvarProcesso()" cdkFocusInitial>Enviar</button>
+</mat-dialog-actions>

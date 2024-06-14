@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Visualizar Processo</h2>
+<mat-dialog-content class="mat-typography">
+    <mat-form-field class="full-width">
+        <mat-label>NPU</mat-label> 
+        <input [(ngModel)]="processo.npu" mask="0000000-00.0000.0.00.0000" disabled="true" name="npu" matInput >
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Data cadastro</mat-label>
+        <input [(ngModel)]="processo.dataCadastro" mask="00/00/0000" disabled="true" name="dataCadastro" matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Data visualização</mat-label>
+        <input [(ngModel)]="processo.dataVisualizacao" mask="00/00/0000" disabled="true" name="dataVisualizacao" matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Municipio</mat-label>
+        <input [(ngModel)]="processo.municipio" disabled="true" name="municipio" matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>UF</mat-label>
+        <input [(ngModel)]="processo.uf" disabled="true" name="uf" matInput>
+    </mat-form-field>
+    <br>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button (click)="downloadAnexo(processo.anexo)">Download Anexo</button>
+  <button mat-button mat-dialog-close>Fechar</button>
+</mat-dialog-actions>
